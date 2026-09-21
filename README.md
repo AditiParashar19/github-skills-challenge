@@ -195,5 +195,7 @@ limitation.
 - Commit all relevant changes.
 - Push the branch to the GitHub fork.
 - Create a pull request from the fork to the original repository.
-- Include the workflow findings, validation result, corrected issue, and
-	limitation in the pull request description.
+- Include the workflow findings, validation result, corrected issue
+
+## Documentation Link
+  https://docs.google.com/document/d/1KoeTSS75b-mtd819nyAGwvNX9LL7Gb9KpjCXdMjHCgk/edit?usp=sharing
