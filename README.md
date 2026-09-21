@@ -95,4 +95,5 @@ Run:
 
 ```bash
 python -m pytest -q
-PYTHONPATH=src python aiops_pipeline.py
+PYTHONPATH=src python src/aiops_pipeline.py
+```
