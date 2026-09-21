@@ -70,3 +70,21 @@ def test_consumer_receives_event():
     messages = consumer.consume()
 
     assert len(messages) == 1
+
+
+def test_producer_rejects_empty_event():
+    topic = EventTopic("anomaly-events")
+    producer = EventProducer(topic)
+
+    assert not producer.publish(None)
+    assert topic.get_messages() == []
+
+
+def test_pipeline_processes_all_records_and_consumes_anomalies():
+    data_file = Path(__file__).parents[1] / "data" / "service_data.json"
+
+    result = run_pipeline(data_file)
+
+    assert result["records_processed"] == 10
+    assert len(result["anomalies_detected"]) == 2
+    assert len(result["events_consumed"]) == 2
