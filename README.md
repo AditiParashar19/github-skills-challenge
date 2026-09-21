@@ -19,6 +19,28 @@ Good luck!
 ---
 # AIOps Monitoring Assessment
 
+## Assessment Objective
+
+This assessment demonstrates the workflow:
+
+```text
+Operational data -> Anomaly detection -> Event generation -> Producer
+-> Topic -> Consumer -> AIOps output
+```
+
+The implementation is a lightweight Python simulation and does not require
+Kafka, Airflow, cloud services, or other external infrastructure.
+
+## Setup
+
+The project was completed in a GitHub Codespace using the fork
+`AditiParashar19/github-skills-challenge`. The original assessment repository
+is configured as the `upstream` remote:
+
+```text
+https://github.com/DebbieAUG/github-skills-challenge.git
+```
+
 ## Scenario
 
 This project monitors a simulated payment service. The goal is to detect slow
@@ -99,14 +121,18 @@ Component roles:
 - **Topic:** provides in-memory event storage and retrieval.
 - **Consumer:** receives events for downstream AIOps processing.
 
-## Issues Corrected
+## Troubleshooting and Correction
 
 The pipeline originally created separate topics for the producer and consumer.
 As a result, the producer published events to one topic while the consumer
 read from an empty topic.
 
-The correction was to use one shared `EventTopic` instance for both the
-`EventProducer` and `EventConsumer`.
+The affected component was `src/aiops_pipeline.py`. The correction was to use
+one shared `EventTopic` instance for both the `EventProducer` and
+`EventConsumer`.
+
+After the correction, the pipeline was executed again and the consumer
+received both anomaly events successfully.
 
 ## Final Execution Result
 
@@ -129,6 +155,28 @@ consumer behavior, empty-event rejection, and complete pipeline processing.
 
 ```text
 10 passed
+```
+
+The validation covers processing the operational JSON data, detecting normal
+and anomalous records, generating events, publishing events to the topic,
+consuming events, and completing the end-to-end pipeline.
+
+## Validation Commands
+
+Run these commands from the repository root:
+
+```bash
+python -m pytest -q
+PYTHONPATH=src python src/aiops_pipeline.py
+```
+
+Expected summary:
+
+```text
+10 passed
+Records processed: 10
+Anomalies detected: 2
+Events consumed: 2
 ```
 
 ## Limitation
@@ -183,4 +231,23 @@ Capture terminal screenshots showing:
 - Push the branch to the GitHub fork.
 - Create a pull request from the fork to the original repository.
 - Include the workflow findings, validation result, corrected issue, and
-	limitation in the pull request description.pull request create failed: GraphQL: Head sha can't be blank, Base sha can't beblank, No commits between DebbieAUG:main and AditiParashar19:assessment/aiops-workflow, Head ref must be a branch (createPullRequest
+  limitation in the pull request description.
+
+## Pull Request
+
+The assessment pull request is [DebbieAUG/github-skills-challenge#100](https://github.com/DebbieAUG/github-skills-challenge/pull/100).
+
+The pull request description includes the detected anomalies, validation
+results, final execution output, corrected topic issue, and detector
+limitation.
+
+## Final Verification
+
+- The repository is the student fork.
+- The README documents the complete workflow.
+- The operational data is processed successfully.
+- Two anomalies are detected from the supplied data.
+- Events move through producer, topic, and consumer components.
+- The final pipeline reports two consumed events.
+- Ten automated tests pass.
+- Evidence screenshots should be attached to the final assessment submission.
