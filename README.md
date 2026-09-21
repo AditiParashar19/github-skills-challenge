@@ -183,4 +183,4 @@ Capture terminal screenshots showing:
 - Push the branch to the GitHub fork.
 - Create a pull request from the fork to the original repository.
 - Include the workflow findings, validation result, corrected issue, and
-	limitation in the pull request description.
+	limitation in the pull request description.pull request create failed: GraphQL: Head sha can't be blank, Base sha can't beblank, No commits between DebbieAUG:main and AditiParashar19:assessment/aiops-workflow, Head ref must be a branch (createPullRequest
