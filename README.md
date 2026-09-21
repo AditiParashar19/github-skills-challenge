@@ -237,17 +237,12 @@ Capture terminal screenshots showing:
 
 The assessment pull request is [DebbieAUG/github-skills-challenge#100](https://github.com/DebbieAUG/github-skills-challenge/pull/100).
 
+- **Target repository:** `DebbieAUG/github-skills-challenge`
+- **Target branch:** `main`
+- **Source repository:** `AditiParashar19/github-skills-challenge`
+- **Source branch:** `assessment/aiops-workflow`
+
 The pull request description includes the detected anomalies, validation
 results, final execution output, corrected topic issue, and detector
 limitation.
 
-## Final Verification
-
-- The repository is the student fork.
-- The README documents the complete workflow.
-- The operational data is processed successfully.
-- Two anomalies are detected from the supplied data.
-- Events move through producer, topic, and consumer components.
-- The final pipeline reports two consumed events.
-- Ten automated tests pass.
-- Evidence screenshots should be attached to the final assessment submission.
