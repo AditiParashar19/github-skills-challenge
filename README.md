@@ -177,6 +177,19 @@ Capture terminal screenshots showing:
 5. Final AIOps output.
 6. Successful test execution showing `10 passed`.
 
+## Pull Request
+
+The assessment pull request is [DebbieAUG/github-skills-challenge#100](https://github.com/DebbieAUG/github-skills-challenge/pull/100).
+
+- **Target repository:** `DebbieAUG/github-skills-challenge`
+- **Target branch:** `main`
+- **Source repository:** `AditiParashar19/github-skills-challenge`
+- **Source branch:** `assessment/aiops-workflow`
+
+The pull request description includes the detected anomalies, validation
+results, final execution output, corrected topic issue, and detector
+limitation.
+
 ## Submission Checklist
 
 - Commit all relevant changes.
